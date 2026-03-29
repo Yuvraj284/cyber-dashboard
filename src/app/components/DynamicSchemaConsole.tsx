@@ -20,7 +20,7 @@ export function DynamicSchemaConsole() {
     let prevVersion: number | null = null;
 
     const fetchSchema = () => {
-      fetch("http://localhost:5000/api/schema")
+      fetch(`${import.meta.env.VITE_API_URL}/api/nodes`)
         .then(res => res.json())
         .then(data => {
           setSchema(data);

@@ -32,7 +32,7 @@ export function AssetRegistry() {
 
   // 🔗 Fetch real data
   useEffect(() => {
-    fetch("http://localhost:5000/api/assets")
+    fetch(`${import.meta.env.VITE_API_URL}/api/nodes`)
       .then(res => res.json())
       .then(setAssets)
       .catch(err => console.error(err));

@@ -37,9 +37,15 @@ export function SleeperHeatmap() {
   useEffect(() => {
   fetch(`${import.meta.env.VITE_API_URL}/api/heatmap`)
     .then(res => res.json())
-    .then(setData)
+    .then(data => {
+      console.log("API DATA:", data);
+      setData(data);
+    })
     .catch(err => console.error(err));
 }, []);
+if (data.length === 0) {
+  return <div>Loading data...</div>;
+}
 
   // 🎯 Count anomalies
   const sleeperCount = data.filter(d => d.anomaly).length;

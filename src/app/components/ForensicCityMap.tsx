@@ -18,7 +18,7 @@ export function ForensicCityMap() {
 
   // ✅ Fetch data
   useEffect(() => {
-    fetch("http://localhost:5000/api/nodes")
+    fetch(`${import.meta.env.VITE_API_URL}/api/nodes`)
       .then(res => res.json())
       .then(data => {
         console.log("DATA:", data);
